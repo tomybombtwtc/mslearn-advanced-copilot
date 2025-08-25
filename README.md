@@ -59,7 +59,43 @@ Finally, verify the new endpoint is working by trying it out by going to the `/d
 
 🚀 Congratulations, through the exercise, you haven't only used copilot to generate code but also done it in an interactive and fun way! You can use GitHub Copilot to not only generate code, but write documentation, test your applications and more.
 
+# 如何執行本專案
 
+## 安裝依賴套件
+
+請先確保你已安裝 Python 3.10 或以上版本。然後在專案根目錄下執行：
+
+```sh
+pip install -r requirements.txt
+```
+
+## 啟動 FastAPI 伺服器
+
+於專案根目錄下執行：
+
+```sh
+uvicorn main:app --reload
+```
+
+伺服器啟動後，預設會在 [http://localhost:8000](http://localhost:8000) 提供服務。
+
+## 使用 API 文件
+
+啟動伺服器後，可於瀏覽器開啟 [http://localhost:8000/docs](http://localhost:8000/docs) 查看自動產生的 Swagger API 文件，並直接進行 API 測試。
+
+## 執行單元測試
+
+本專案使用 `pytest` 進行測試。於專案根目錄下執行：
+
+```sh
+pytest
+```
+
+即可執行所有測試案例，確保 API 功能正常。
+
+---
+
+如需更多細節，請參閱
 
 # Legal Notices
 

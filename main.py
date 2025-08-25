@@ -35,6 +35,29 @@ def countries():
 def monthly_average(country: str, city: str, month: str):
     return data[country][city][month]
 
+
+@app.get('/countries/{country}/cities')
+def get_cities(country: str) -> list[str]:
+    """
+    Retrieve the list of cities for a given country.
+
+    Parameters:
+    country (str): The name of the country.
+
+    Returns:
+    list[str]: A list of city names for the specified country.
+
+    Raises:
+    KeyError: If the country does not exist in the dataset.
+
+    Edge Cases:
+    - If the country does not exist, returns an empty list.
+    """
+    # Handle the case where the country is not found in the data
+    if country not in data:
+        return []
+    return list(data[country].keys())
+
 # Generate the OpenAPI schema:
 openapi_schema = app.openapi()
 with open(join(wellknown_path, "openapi.json"), "w") as f:
